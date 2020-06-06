@@ -1,0 +1,21 @@
+simulation:               # Simulacna cast
+    Ts: 1.0               # Vzorkovacia perioda (ms)
+    tSample: 300          # Dlzka vzorky (ms)
+    nSample: 12
+neuron:                   # Konfiguracia neuronov
+    type:     SRMALPHA    # Model neuronu
+    theta:    10          # Prahova hodnota
+    tauSr:    10.0        # Casova konstanta
+    tauRef:   1.0         # Dlzka refrakcnej doby
+    scaleRef: 2           # Velkost refrakcej odozvy (relativna k theta)
+    tauRho:   1           # Casova derivacna konstanta (relativna k theta)
+    scaleRho: 1           # Skalovaci faktor derivacnej funkcie
+training:                 # Trenovacia cast
+    error:
+        type: NumSpikes  # Typ trenovania
+
+        tgtSpikeRegion: {start: 0, stop: 300}    # Casovy ramec impulzov
+        tgtSpikeCount: {true: 60, false: 10}    # Pocet impulzov
+        in:      NMNIST/              # Cesta k databaze
+        train:   NMNIST/train.txt     # Cesta k anotacnemu suboru train
+        test:    NMNIST/test.txt      # Cesta k anotacnemu suboru test
