@@ -1,7 +1,7 @@
 import os
 import time
 import numpy as np
-
+#zmena
 import keras
 from keras import Input, Model
 from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, \
